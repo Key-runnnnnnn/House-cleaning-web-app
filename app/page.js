@@ -7,7 +7,7 @@ import GlobalApi from "./_survices/GlobalApi";
 import { useEffect, useState} from "react";
 
 export default function Home() {
-  console.log("hello Aditya")
+  console.log("hello kiran")
 
   const [categoryList,setCategoryList]=useState([]);
   useEffect(() => {
