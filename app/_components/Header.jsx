@@ -1,5 +1,5 @@
 "use client";
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 // import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from "next/image";
 import React, { useEffect } from "react";
@@ -12,6 +12,7 @@ import React, { useEffect } from "react";
 //   DropdownMenuTrigger,
 // } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 function Header() {
   // const {data}=useSession();
@@ -52,6 +53,9 @@ function Header() {
             About Us
           </h2>
         </div>
+      </div>
+      <div>
+        <Button onClick={() => signIn('descope')}>Login / Sign up</Button>
       </div>
       {/* <div>
           {data?.user?

@@ -12,12 +12,13 @@ export default function Home() {
   useEffect(() => {
     getCategoryList()
   }, [])
+
   const getCategoryList = () => {
     GlobalApi.getCategory().then(resp => {
-      // console.log(resp.categories);
       setCategoryList(resp.categories);
     })
   }
+
   return (
     <div>
       <Hero />

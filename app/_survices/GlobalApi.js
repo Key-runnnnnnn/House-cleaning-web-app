@@ -20,11 +20,4 @@ const getCategory = async () => {
 
 export default {
   getCategory
-  // getAllBusinessList,
-  // getBusinessByCategory,
-  // getBusinessById,
-  // createNewBooking,
-  // BusinessBookedSlot,
-  // GetUserBookingHistory,
-  // deleteBooking
 }
