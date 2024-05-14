@@ -41,16 +41,16 @@ const getAllBusinessList = async () => {
   }
     `
   const result = await request(MASTER_URL, query)
-  return result;
+  return result
 
 }
 
 
-const getBusinessByCategory=async(category)=>{
-  const query=gql`
+const getBusinessByCategory = async (category) => {
+  const query = gql`
   query MyQuery {
-      businessLists(where: {category: 
-          {name: "`+category+`"}}) {
+      bussinessLists(where: {category: 
+          {name: "`+ category + `"}}) {
         about
         address
         category {
@@ -66,12 +66,13 @@ const getBusinessByCategory=async(category)=>{
       }
     }
     `
-    const result=await request(MASTER_URL,query)
-    return result;
+    const result = await request(MASTER_URL, query)
+    return result
 }
+
 
 export default {
   getCategory,
   getAllBusinessList,
-  getBusinessByCategory,
+  getBusinessByCategory
 }
