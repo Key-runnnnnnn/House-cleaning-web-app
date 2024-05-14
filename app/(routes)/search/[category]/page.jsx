@@ -13,7 +13,7 @@ function BusinessByCategory({ params }) {
 
   const getBusinessList = () => {
     GlobalApi.getBusinessByCategory(params.category).then((resp) => {
-      setBusinessList(resp?.businessLists);
+      setBusinessList(resp?.bussinessLists);
     });
   };
 
