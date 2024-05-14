@@ -18,19 +18,6 @@ import { toast } from 'sonner'
 
 
 function BookingHistoryList({bookingHistory,type}) {
-  
-  
-  const cancelAppointment=(booking)=>{
-      GlobalApi.deleteBooking(booking.id).then(resp=>{
-        if(resp)
-        {
-          toast('Booking Delete Successfully!')
-        }
-      },(e)=>{
-        toast('Error while canceling booking!')
-      })
-  }
-  
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
         {bookingHistory.map((booking,index)=>(
@@ -57,30 +44,6 @@ function BookingHistoryList({bookingHistory,type}) {
                             
                 </div>
             </div>
-           
-{/* <AlertDialog>
-  <AlertDialogTrigger asChild>
-  <Button
-          variant="outline"
-             className="mt-5 w-full border-red-300 ">Cancel Appointment</Button>
-  </AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-      <AlertDialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction
-      onClick={()=>cancelAppointment(booking)}
-      >Continue</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog> */}
-
             </div>
         ))}
     </div>
