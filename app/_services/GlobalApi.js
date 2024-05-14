@@ -41,13 +41,13 @@ const getAllBusinessList = async () => {
   }
     `
   const result = await request(MASTER_URL, query)
-  return result;
+  return result
 
 }
 
 
-const getBusinessByCategory=async(category)=>{
-  const query=gql`
+const getBusinessByCategory = async (category) => {
+  const query = gql`
   query MyQuery {
       bussinessLists(where: {category: 
           {name: "`+category+`"}}) {
@@ -66,8 +66,8 @@ const getBusinessByCategory=async(category)=>{
       }
     }
     `
-    const result=await request(MASTER_URL,query)
-    return result;
+    const result = await request(MASTER_URL, query)
+    return result
 }
 
 const getBusinessById=async(id)=>{
