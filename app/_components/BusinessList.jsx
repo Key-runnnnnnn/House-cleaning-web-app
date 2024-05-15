@@ -30,6 +30,9 @@ function BusinessList({businessList,title}) {
                         <h2 className='font-bold text-lg'>{business.name}</h2>
                         <h2 className='text-primary'>{business.contactPerson}</h2>
                         <h2 className='text-gray-500 text-sm'>{business.address}</h2>
+
+                        <h2 className='text-gray-500 text-sm'>{business.price}</h2>
+
                         <Button className="rounded-lg mt-3">Book Now</Button>
                     </div>
                 </Link>

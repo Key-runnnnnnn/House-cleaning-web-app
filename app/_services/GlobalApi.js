@@ -24,7 +24,7 @@ const getCategory = async () => {
 const getAllBusinessList = async () => {
   const query = gql`
   query BusinessList {
-    bussinessLists{
+    bussinessLists {
       about
       address
       category {
@@ -32,11 +32,12 @@ const getAllBusinessList = async () => {
       }
       contactPerson
       email
+      id
       images {
         url
       }
-      id
       name
+      price
     }
   }
     `
@@ -63,6 +64,7 @@ const getBusinessByCategory = async (category) => {
         images {
           url
         }
+        price
       }
     }
     `
