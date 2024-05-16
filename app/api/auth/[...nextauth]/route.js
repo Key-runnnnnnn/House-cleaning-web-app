@@ -20,7 +20,9 @@ export const authOptions = {
                     image: profile.picture,
                 }
             },
-        }],
+        }
+    ],
+    secret: process.env.SECRET,
     callbacks: {
         async jwt({ token, account, profile }) {
             if (account) {
