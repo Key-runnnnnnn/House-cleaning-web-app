@@ -8,8 +8,6 @@ import { useEffect, useState} from "react";
 import BusinessList from "./_components/BusinessList";
 
 export default function Home() {
-  // console.log("hello kiran")
-
   const [categoryList,setCategoryList]=useState([]);
   const [businessList,setBusinessList]=useState([]);
   useEffect(() => {
@@ -19,7 +17,6 @@ export default function Home() {
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then(resp => {
-      // console.log(resp.categories);
       setCategoryList(resp.categories);
      
     })
@@ -27,7 +24,6 @@ export default function Home() {
 
   const getAllBusinessList=()=>{
     GlobalApi.getAllBusinessList().then(resp=>{
-      // console.log(resp.bussinessLists);
       setBusinessList(resp.bussinessLists);
     })
   }
