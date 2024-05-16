@@ -51,7 +51,7 @@ const getBusinessByCategory = async (category) => {
   const query = gql`
   query MyQuery {
       bussinessLists(where: {category: 
-          {name: "`+ category + `"}}) {
+          {name: "`+category+`"}}) {
         about
         address
         category {
@@ -68,14 +68,14 @@ const getBusinessByCategory = async (category) => {
       }
     }
     `
-  const result = await request(MASTER_URL, query)
-  return result
+    const result = await request(MASTER_URL, query)
+    return result
 }
 
-const getBusinessById = async (id) => {
-  const query = gql`
+const getBusinessById=async(id)=>{
+  const query=gql`
   query GetBusinessById {
-    businessList(where: {id: "`+ id + `"}) {
+    businessList(where: {id: "`+id+`"}) {
       about
       address
       category {
@@ -91,33 +91,33 @@ const getBusinessById = async (id) => {
     }
   }
   `
-  const result = await request(MASTER_URL, query)
-  return result;
+  const result=await request(MASTER_URL,query)
+      return result;
 }
 
-const BusinessBookedSlot = async (businessId, date) => {
-  const query = gql`
+const BusinessBookedSlot=async(businessId,date)=>{
+  const query=gql`
   query BusinessBookedSlot {
     bookings(where: {businessList: 
-      {id: "`+ businessId + `"}, date: "` + date + `"}) {
+      {id: "`+businessId+`"}, date: "`+date+`"}) {
       date
       time
     }
   }
   `
-  const result = await request(MASTER_URL, query)
+  const result=await request(MASTER_URL,query)
   return result;
 }
 
-const createNewBooking = async (businessId, date, time, userEmail, userName) => {
-  const mutationQuery = gql`
+const createNewBooking=async(businessId,date,time,userEmail,userName)=>{
+  const mutationQuery=gql`
   mutation CreateBooking {
     createBooking(
       data: {bookingStatus: Booked, 
-        businessList: {connect: {id: "`+ businessId + `"}},
-         date: "`+ date + `", time: "` + time + `", 
-         userEmail: "`+ userEmail + `",
-          userName: "`+ userName + `"}
+        businessList: {connect: {id: "`+businessId+`"}},
+         date: "`+date+`", time: "`+time+`", 
+         userEmail: "`+userEmail+`",
+          userName: "`+userName+`"}
     ) {
       id
     }
@@ -126,14 +126,14 @@ const createNewBooking = async (businessId, date, time, userEmail, userName) => 
     }
   }
   `
-  const result = await request(MASTER_URL, mutationQuery)
+  const result=await request(MASTER_URL,mutationQuery)
   return result;
 }
 
-const GetUserBookingHistory = async (userEmail) => {
-  const query = gql`
+const GetUserBookingHistory=async(userEmail)=>{
+  const query=gql`
   query GetUserBookingHistory {
-    bookings(where: {userEmail: "`+ userEmail + `"}
+    bookings(where: {userEmail: "`+userEmail+`"}
     orderBy: publishedAt_DESC) {
       businessList {
         name
@@ -149,7 +149,23 @@ const GetUserBookingHistory = async (userEmail) => {
     }
   }
   `
-  const result = await request(MASTER_URL, query)
+  const result=await request(MASTER_URL,query)
+  return result;
+
+}
+
+const deleteBooking=async(bookingId)=>{
+  const mutationQuery=gql`
+  mutation DeleteBooking {
+    deleteBooking(where: {id: "`+bookingId+`"}) {
+      bookingStatus
+      date
+      id
+      userEmail
+    }
+  }
+  `
+  const result=await request(MASTER_URL,mutationQuery);
   return result;
 
 }
@@ -162,5 +178,6 @@ export default {
   getBusinessById,
   BusinessBookedSlot,
   createNewBooking,
-  GetUserBookingHistory
+  GetUserBookingHistory,
+  deleteBooking,
 }

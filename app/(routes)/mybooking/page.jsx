@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import BookingHistoryList from './_component/BookingHistoryList'
 import GlobalApi from '@/app/_services/GlobalApi'
 import { useSession } from 'next-auth/react'
-// import moment from 'moment'
+import moment from 'moment'
 
 function MyBooking() {
 
@@ -51,7 +51,6 @@ function MyBooking() {
                 <BookingHistoryList 
                 bookingHistory={filterData('completed')}
                 type='completed'/>
-                    
                 </TabsContent>
             </Tabs>
 
