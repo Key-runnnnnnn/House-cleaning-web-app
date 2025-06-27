@@ -30,7 +30,7 @@ function Header() {
       <div className="flex items-center gap-8">
         <Link href={"/"}>
           <Image
-            src="/Designer.png"
+            src="/h2.jpg"
             alt="logo"
             width={50}
             height={50}
@@ -42,7 +42,7 @@ function Header() {
             href={"/"}
             className="font-bold text-[20px] hover:scale-105 text-primary"
           >
-            A1-Maids Cleaning Service LLC
+            HomeShine
           </Link>
           <Link
             href={"/"}
