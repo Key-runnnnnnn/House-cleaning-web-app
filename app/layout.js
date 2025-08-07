@@ -17,10 +17,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <NextAuthSessionProvider>
-          <div className=" mx-6 md:mx-16">
+          <div className="min-h-screen">
             <Header />
             <Toaster />
-            {children}
+            <main className="pt-16">
+              {children}
+            </main>
           </div>
         </NextAuthSessionProvider>
         <Footer />
